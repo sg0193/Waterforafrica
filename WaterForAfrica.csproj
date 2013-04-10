@@ -161,21 +161,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="EventContext.Context.cs">
-      <DependentUpon>EventContext.Context.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="EventContext.cs">
-      <DependentUpon>EventContext.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="EventContext.Designer.cs">
-      <DependentUpon>EventContext.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,15 +169,6 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>EventContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="T_LOGIN.cs">
-      <DependentUpon>EventContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="T_PROFILE_DETAILS.cs">
-      <DependentUpon>EventContext.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -290,23 +266,6 @@
     <Content Include="Dlls\WebMatrix.WebData.xml" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="EventContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EventContext.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="EventContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EventContext.edmx</DependentUpon>
-      <LastGenOutput>EventContext.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EventContext.edmx.diagram">
-      <DependentUpon>EventContext.edmx</DependentUpon>
-    </Content>
-    <Content Include="EventContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EventContext.edmx</DependentUpon>
-      <LastGenOutput>EventContext.cs</LastGenOutput>
-    </Content>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\2920998_300.png" />
     <Content Include="Images\af_logo_anniversary.png" />
