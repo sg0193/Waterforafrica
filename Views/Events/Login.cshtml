@@ -1,0 +1,41 @@
+﻿@model Events.Models.LoginModel 
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Events.cshtml";
+}
+
+@using (Html.BeginForm())
+{<body>
+    <div id="body">
+        <div class="row-fluid">
+            <div class="span4">
+                <h2>Welcome to A Rise for Water</h2>
+                <p>We're Christians and we believe Jesus makes a clear call to "provide a cup of cold water" and to answer the needs of those who say "I am thirsty" (Matt 25).</p>
+                <p>
+                    Our belief motivates our action. It doesn't limit our reach.
+That said, it's important to note that we work with everyone, for everyone. Our belief motivates our action. It doesn't limit our reach. It forms the basis of our integrity and the assurance that lives can be truly changed.
+                </p>
+            </div>
+            <div class="span4 offset1">
+                @*<form action="../../j_spring_security_check" method="post">*@
+                    <h2>Login</h2>
+                    <label class="control-label" for="txtUserName">UserName</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "input-xlarge", placeholder = "Enter your Username", @maxlength = "60", @autocomplete = "off" })
+                     <label class="control-label" for="txtPassword">Password</label>
+                    @Html.PasswordFor(m => m.Password, new { @class = "input-xlarge", @maxlength = "60", @autocomplete = "off" })
+                    <br />
+                    <button name="button" Value="Signin">Sigin</button>
+                @*</form>*@
+            </div>
+
+            <div class="span3">
+                <h2>Join</h2>
+                <p>A Rise for Water Project is a charity dedicated to helping provide clean, safe water to those who suffer needlessly without it.You can help!</p>
+                <br />
+                <button name="button" Value="JoinUs">Join Us</button>
+            </div>
+        </div>
+
+    </div>
+    </body>
+}
