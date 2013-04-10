@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    @*<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />*@
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+
+    <!-- Le styles -->
+  
+    <link href="@Url.Content("~/Styles/bootstrap.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Styles/style_public.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Styles/bootstrap-responsive.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Styles/fullcalendar.css")" rel="stylesheet"/>
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.10.2.custom.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/fullcalendar.min.js")"></script>
+    
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+
+</head>
+
+<body>
+   
+    <div class="container">
+
+        <div class="masthead">
+            <div class="row-fluid">
+                <div class="span10">
+
+                    <h1 class="muted">
+                        <img src="@Url.Content("~/Images/Logo1.PNG")" />A Rise For Water</h1>
+                </div>
+                  <div class="span2">
+                    @*<sec:authorize access="isAnonymous()">*@
+    				<a href="login">Login/Register</a>
+				   @*</sec:authorize>*@
+				@*<sec:authorize access="isAuthenticated()">*@
+    			@*	<a href="../auth/logout" >Logout</a>*@
+				@*</sec:authorize>*@
+                </div>
+
+            </div>
+
+
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul class="nav">
+                            <li id="lnkHome"><a href="home">Home</a></li>
+                            <li id="lnkAboutUs"><a href="AboutUs">About Us</a></li>
+                            <li id="lnkProjects"><a href="Projects">Projects</a></li>
+                            <li id ="lnkCalendar"><a href="Calendar">Calendar</a></li>
+                            <li id="lnkContactUs"><a href="ContactUs">Contact Us</a></li>
+                            <li id="lnkDonate"><a href="Donate">Donate</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /.navbar -->
+             @RenderBody()
+             
+            <hr>
+            <div class="footer">
+                <p style="text-align: right">&copy; A Rise For Water 2013</p>
+            </div>
+
+        </div>
+    </div>
+    <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+</body>
+</html>
+
