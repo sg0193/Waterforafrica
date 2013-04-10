@@ -81,7 +81,7 @@ namespace Events.Controllers
 
 
         }
-        
+        //Post
         [HttpPost]
         public ActionResult ProfileCreate(ProfileModel ProfileModel)
         {
