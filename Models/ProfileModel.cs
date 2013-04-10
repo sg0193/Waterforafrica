@@ -4,7 +4,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//using FluentValidation.Mvc;
+
+using FluentValidation.Mvc;
 
 namespace Events.Models
 {
