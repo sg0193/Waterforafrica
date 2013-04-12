@@ -2,6 +2,11 @@
     ViewBag.Title = "Donate";
     Layout = "~/Views/Shared/_Events.cshtml";
 }
+<script>
+        $(document).ready(function () {
+            $("#lnkDonate").addClass('active');
+        });
+    </script>
 @using (Html.BeginForm())
 {
     <body>

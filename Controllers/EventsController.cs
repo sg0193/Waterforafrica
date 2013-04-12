@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.EntityModel;
 using System.Data.Entity;
+using System.Web.Security;
+using WaterForAfrica;
 
 namespace Events.Controllers
 {
@@ -63,56 +65,77 @@ namespace Events.Controllers
         {
             return View();
         }
+        [Authorize]
+        public ActionResult UserActions()
+        {
+            return View();
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+
+            // clear authentication cookie
+            HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+            cookie1.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(cookie1);
+
+            // clear session cookie (not necessary for your current problem but i would recommend you do it anyway)
+            HttpCookie cookie2 = new HttpCookie("ASP.NET_SessionId", "");
+            cookie2.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(cookie2);
+
+            //FormsAuthentication.RedirectToLoginPage();
+            return RedirectToAction("Home","Events");
+        }
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Login(string button, LoginModel loginModel)
+        public ActionResult Login(string button, LoginModel model)
         {
             if (button == "Signin")
             {
 
-                return RedirectToAction("EventDetails");
+                if (ModelState.IsValid)
+                {
+                    if (model.IsValid(model.UserName, model.Password))
+                    {
+                        FormsAuthentication.SetAuthCookie(model.UserName, true);
+                        return RedirectToAction("UserActions", "Events");
+                    }
+
+                    else
+                    {
+                        ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    }
+                }
+                return View(model);
             }
             else
             {
-
                 return RedirectToAction("ProfileCreate");
-
             }
-
-
-
         }
 
        
         [HttpPost]
         public ActionResult ProfileCreate(ProfileModel ProfileModel)
         {
-            //try
-            //{
-            //    using (Events.Entities EventContext = new Entities())
-            //    {
-            //        T_LOGIN loginEntity = new T_LOGIN();
-            //        loginEntity.UserName = ProfileModel.Login.UserName;
-            //        loginEntity.Password = ProfileModel.Login.Password;
-            //        EventContext.T_LOGIN.Add(loginEntity);
-            //        EventContext.SaveChanges();
-                   
-            //        T_PROFILE_DETAILS profilesEntity = new T_PROFILE_DETAILS();
-            //        profilesEntity.FirstName = ProfileModel.FirstName;
-            //        profilesEntity.LastName = ProfileModel.LastName;
-            //        profilesEntity.LoginId = loginEntity.LoginId;
-            //        EventContext.T_PROFILE_DETAILS.Add(profilesEntity);
-            //        EventContext.SaveChanges();
-                                        
-            //    }
-
-            //}
-            //catch
-            //{
-
-            //    return View();
-            //}
-
-            return RedirectToAction("ThankYou");
+            if (ModelState.IsValid)
+            {
+               string regStats =  ProfileModel.CreateProfile(ProfileModel);
+               if (regStats == "Success")
+               {
+                   return RedirectToAction("ThankYou");
+               }
+               else
+               {
+                   return View();
+               }
+            }
+            else
+            {
+                return View();
+            }
+                       
         }
     }
 }

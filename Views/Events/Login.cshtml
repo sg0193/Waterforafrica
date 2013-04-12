@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Events.cshtml";
 }
 
+
 @using (Html.BeginForm())
 {<body>
     <div id="body">
@@ -22,7 +23,7 @@ That said, it's important to note that we work with everyone, for everyone. Our 
                     <label class="control-label" for="txtUserName">UserName</label>
                     @Html.TextBoxFor(m => m.UserName, new { @class = "input-xlarge", placeholder = "Enter your Username", @maxlength = "60", @autocomplete = "off" })
                      <label class="control-label" for="txtPassword">Password</label>
-                    @Html.PasswordFor(m => m.Password, new { @class = "input-xlarge", @maxlength = "60", @autocomplete = "off" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "input-xlarge", placeholder = "Enter your Password", @maxlength = "60", @autocomplete = "off" })
                     <br />
                     <button name="button" Value="Signin">Sigin</button>
                 @*</form>*@

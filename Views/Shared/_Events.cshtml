@@ -13,7 +13,7 @@
     <!-- Le styles -->
 
     <!-- Le styles -->
-  
+
     <link href="@Url.Content("~/Styles/bootstrap.css")" rel="stylesheet">
     <link href="@Url.Content("~/Styles/style_public.css")" rel="stylesheet">
     <link href="@Url.Content("~/Styles/bootstrap-responsive.css")" rel="stylesheet">
@@ -21,11 +21,11 @@
 
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
-	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.10.2.custom.min.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.10.2.custom.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
-	<script type="text/javascript" src="@Url.Content("~/Scripts/fullcalendar.min.js")"></script>
-    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/fullcalendar.min.js")"></script>
+
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -37,23 +37,28 @@
 </head>
 
 <body>
-   
+
     <div class="container">
 
         <div class="masthead">
             <div class="row-fluid">
-                <div class="span10">
+                <div class="span9">
 
                     <h1 class="muted">
                         <img src="@Url.Content("~/Images/Logo1.PNG")" />A Rise For Water</h1>
                 </div>
-                  <div class="span2">
-                    @*<sec:authorize access="isAnonymous()">*@
-    				<a href="login">Login/Register</a>
-				   @*</sec:authorize>*@
-				@*<sec:authorize access="isAuthenticated()">*@
-    			@*	<a href="../auth/logout" >Logout</a>*@
-				@*</sec:authorize>*@
+                <div class="span3">
+                    @if (Request.IsAuthenticated)
+                    {
+                        @:Welcome <strong style="color: rgb(0, 136, 204);">@User.Identity.Name</strong>
+                        @Html.ActionLink("Logout", "Logout") 
+                       }
+
+
+                    else
+                    {
+                        @Html.ActionLink("LogIn/Register", "Login") 
+                      }
                 </div>
 
             </div>
@@ -66,7 +71,7 @@
                             <li id="lnkHome"><a href="home">Home</a></li>
                             <li id="lnkAboutUs"><a href="AboutUs">About Us</a></li>
                             <li id="lnkProjects"><a href="Projects">Projects</a></li>
-                            <li id ="lnkCalendar"><a href="Calendar">Calendar</a></li>
+                            <li id="lnkCalendar"><a href="Calendar">Calendar</a></li>
                             <li id="lnkContactUs"><a href="ContactUs">Contact Us</a></li>
                             <li id="lnkDonate"><a href="Donate">Donate</a></li>
                         </ul>
@@ -75,7 +80,7 @@
             </div>
             <!-- /.navbar -->
             @RenderBody()
-             
+
             <hr>
             <div class="footer">
                 <p style="text-align: right">&copy; A Rise For Water 2013</p>
@@ -88,6 +93,6 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    
+
 </body>
 </html>

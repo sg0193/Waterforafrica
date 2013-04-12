@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db8384054e5c6049a5a3c1a19c01073dabModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="db8384054e5c6049a5a3c1a19c01073dabModelStoreContainer">
+          <EntitySet Name="T_LOGIN" EntityType="db8384054e5c6049a5a3c1a19c01073dabModel.Store.T_LOGIN" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_PROFILE_DETAILS" EntityType="db8384054e5c6049a5a3c1a19c01073dabModel.Store.T_PROFILE_DETAILS" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_T_PROFILE_DETAILS_T_LOGIN" Association="db8384054e5c6049a5a3c1a19c01073dabModel.Store.FK_T_PROFILE_DETAILS_T_LOGIN">
+            <End Role="T_LOGIN" EntitySet="T_LOGIN" />
+            <End Role="T_PROFILE_DETAILS" EntitySet="T_PROFILE_DETAILS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_LOGIN">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_PROFILE_DETAILS">
+          <Key>
+            <PropertyRef Name="ProfileId" />
+          </Key>
+          <Property Name="ProfileId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="60" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="60" />
+          <Property Name="LoginId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_T_PROFILE_DETAILS_T_LOGIN">
+          <End Role="T_LOGIN" Type="db8384054e5c6049a5a3c1a19c01073dabModel.Store.T_LOGIN" Multiplicity="1" />
+          <End Role="T_PROFILE_DETAILS" Type="db8384054e5c6049a5a3c1a19c01073dabModel.Store.T_PROFILE_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_LOGIN">
+              <PropertyRef Name="LoginId" />
+            </Principal>
+            <Dependent Role="T_PROFILE_DETAILS">
+              <PropertyRef Name="LoginId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db8384054e5c6049a5a3c1a19c01073dabModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EventsDbEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="T_LOGIN" EntityType="db8384054e5c6049a5a3c1a19c01073dabModel.T_LOGIN" />
+          <EntitySet Name="T_PROFILE_DETAILS" EntityType="db8384054e5c6049a5a3c1a19c01073dabModel.T_PROFILE_DETAILS" />
+          <AssociationSet Name="FK_T_PROFILE_DETAILS_T_LOGIN" Association="db8384054e5c6049a5a3c1a19c01073dabModel.FK_T_PROFILE_DETAILS_T_LOGIN">
+            <End Role="T_LOGIN" EntitySet="T_LOGIN" />
+            <End Role="T_PROFILE_DETAILS" EntitySet="T_PROFILE_DETAILS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_LOGIN">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="T_PROFILE_DETAILS" Relationship="db8384054e5c6049a5a3c1a19c01073dabModel.FK_T_PROFILE_DETAILS_T_LOGIN" FromRole="T_LOGIN" ToRole="T_PROFILE_DETAILS" />
+        </EntityType>
+        <EntityType Name="T_PROFILE_DETAILS">
+          <Key>
+            <PropertyRef Name="ProfileId" />
+          </Key>
+          <Property Name="ProfileId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="LoginId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_LOGIN" Relationship="db8384054e5c6049a5a3c1a19c01073dabModel.FK_T_PROFILE_DETAILS_T_LOGIN" FromRole="T_PROFILE_DETAILS" ToRole="T_LOGIN" />
+        </EntityType>
+        <Association Name="FK_T_PROFILE_DETAILS_T_LOGIN">
+          <End Role="T_LOGIN" Type="db8384054e5c6049a5a3c1a19c01073dabModel.T_LOGIN" Multiplicity="1" />
+          <End Role="T_PROFILE_DETAILS" Type="db8384054e5c6049a5a3c1a19c01073dabModel.T_PROFILE_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_LOGIN">
+              <PropertyRef Name="LoginId" />
+            </Principal>
+            <Dependent Role="T_PROFILE_DETAILS">
+              <PropertyRef Name="LoginId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db8384054e5c6049a5a3c1a19c01073dabModelStoreContainer" CdmEntityContainer="EventsDbEntities">
+          <EntitySetMapping Name="T_LOGIN">
+            <EntityTypeMapping TypeName="db8384054e5c6049a5a3c1a19c01073dabModel.T_LOGIN">
+              <MappingFragment StoreEntitySet="T_LOGIN">
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_PROFILE_DETAILS">
+            <EntityTypeMapping TypeName="db8384054e5c6049a5a3c1a19c01073dabModel.T_PROFILE_DETAILS">
+              <MappingFragment StoreEntitySet="T_PROFILE_DETAILS">
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

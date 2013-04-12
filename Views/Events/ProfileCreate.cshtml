@@ -16,11 +16,11 @@
                     <h3>Login Information</h3>
                     <br />
                    <label class="control-label" for="txtUserName">UserName</label>
-                    @Html.TextBoxFor(m => m.Login.UserName, new { @class = "input-xlarge", placeholder = "Enter your Username", @maxlength = "60", @autocomplete = "off" })
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "input-xlarge", placeholder = "Enter your Username", @maxlength = "60", @autocomplete = "off" })
                      <label class="control-label" for="txtPassword">Password</label>
-                    @Html.PasswordFor(m => m.Login.Password, new { @class = "input-xlarge", @maxlength = "60", @autocomplete = "off" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "input-xlarge",placeholder = "Enter your Password", @maxlength = "60", @autocomplete = "off" })
                       <label class="control-label" for="txtCnfrmPassword">Password</label>
-                    @Html.PasswordFor(m => m.Login.cnfmPassword, new { @class = "input-xlarge", @maxlength = "60", @autocomplete = "off" })
+                    @Html.PasswordFor(m => m.cnfmPassword, new { @class = "input-xlarge",placeholder = "Confirm your Password", @maxlength = "60", @autocomplete = "off" })
                     <h3>Profile Information</h3>
                     <br />
                     <label class="control-label" for="txtFirstName">FirstName</label>

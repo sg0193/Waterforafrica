@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "UserActions";
+    Layout = "~/Views/Shared/_Events.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <body>
+    <div id="body">
+        <div class="row-fluid">
+            <div class="span3">
+                <h3>Features</h3>
+            </div>
+            <div class="span5">
+                <div class="input-group well-no-bkgrnd">
+                   @Html.ActionLink("Create Event", "EventDetails");<br />
+                    @Html.ActionLink("View and Update Events", "Calendar");
+
+                </div>
+            </div>
+        </div>
+    </div>          
+    </body>
+}
