@@ -16,6 +16,7 @@
 
     <link href="@Url.Content("~/Styles/bootstrap.css")" rel="stylesheet">
     <link href="@Url.Content("~/Styles/style_public.css")" rel="stylesheet">
+     <link href="@Url.Content("~/Content/site.css")" rel="stylesheet">
     <link href="@Url.Content("~/Styles/bootstrap-responsive.css")" rel="stylesheet">
     <link href="@Url.Content("~/Styles/fullcalendar.css")" rel="stylesheet"/>
 
@@ -47,17 +48,17 @@
                     <h1 class="muted">
                         <img src="@Url.Content("~/Images/Logo1.PNG")" />A Rise For Water</h1>
                 </div>
-                <div class="span3">
+                <div style="text-align:right">
                     @if (Request.IsAuthenticated)
                     {
-                        @:Welcome <strong style="color: rgb(0, 136, 204);">@User.Identity.Name</strong>
+                        @:Welcome <strong style="color: rgb(0, 136, 204);">@User.Identity.Name,</strong>
                         @Html.ActionLink("Logout", "Logout") 
                        }
 
 
                     else
                     {
-                        @Html.ActionLink("LogIn/Register", "Login") 
+                        @Html.ActionLink("Login/Register", "Login") 
                       }
                 </div>
 
@@ -79,7 +80,8 @@
                 </div>
             </div>
             <!-- /.navbar -->
-            @RenderBody()
+       
+                 @RenderBody()
 
             <hr>
             <div class="footer">

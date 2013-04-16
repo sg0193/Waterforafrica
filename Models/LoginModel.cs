@@ -6,16 +6,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WaterForAfrica;
+using FluentValidation.Attributes;
+using WaterForAfrica.Validator;
+
 
 namespace Events.Models
 {
+    [Validator(typeof(LoginModelValidator))]
     public class LoginModel
     {
-        [Required]
         [Display(Name = "UserName")]
         [AllowHtml]
         public string UserName { get; set; }
-        [Required]
+        
         [AllowHtml]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -31,11 +34,11 @@ namespace Events.Models
         public bool IsValid(string UserName, string Password)
         {
             bool isValid = true;
-            using (EventsDbEntities eventsContext = new EventsDbEntities())
-            {
-                var User = eventsContext.T_LOGIN.Select(login => login.UserName.Equals(UserName)).ToList();
+            //using (EventsDbEntities eventsContext = new EventsDbEntities())
+            //{
+            //    var User = eventsContext.T_LOGIN.Select(login => login.UserName.Equals(UserName)).ToList();
                  
-            }
+            //}
             return isValid;
         }
     }

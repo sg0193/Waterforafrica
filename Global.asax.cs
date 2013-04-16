@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,7 +22,10 @@ namespace WaterForAfrica
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //ModelValidatorProviders.Providers.Add(new FluentValidationModelValidatorProvider(new WaterforAfricaValidatorFactory()));
+            FluentValidation.Mvc.FluentValidationModelValidatorProvider.Configure();
             AuthConfig.RegisterAuth();
+
         }
     }
 }

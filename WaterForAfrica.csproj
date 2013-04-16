@@ -209,6 +209,7 @@
     <Compile Include="T_PROFILE_DETAILS.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Validator\LoginModelValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -338,6 +339,7 @@
     <Content Include="Images\Project4.png" />
     <Content Include="Images\WE-WALK-slider.jpg" />
     <Content Include="Images\wfalogo.png" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\fullcalendar.js" />

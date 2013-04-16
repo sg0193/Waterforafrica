@@ -1,12 +1,12 @@
 ﻿html {
-    background-color: #e2e2e2;
+    /*background-color: #e2e2e2;*/
     margin: 0;
     padding: 0;
 }
 
 body {
     background-color: #fff;
-    border-top: solid 10px #000;
+    /*border-top: solid 10px #000;*/
     color: #333;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
@@ -336,7 +336,7 @@ aside {
 }
 
     #loginForm .validation-error {
-        display: block;
+        /*display: block;*/
         margin-left: 15px;
     }
 
@@ -499,7 +499,7 @@ textarea {
 /* styles for validation helpers */
 .field-validation-error {
     color: #e80c4d;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 .field-validation-valid {
@@ -507,7 +507,7 @@ textarea {
 }
 
 input.input-validation-error {
-    border: 1px solid #e80c4d;
+    border: 1px #e80c4d;
 }
 
 input[type="checkbox"].input-validation-error {

@@ -94,6 +94,7 @@ namespace Events.Controllers
             if (button == "Signin")
             {
 
+                
                 if (ModelState.IsValid)
                 {
                     if (model.IsValid(model.UserName, model.Password))
