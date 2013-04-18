@@ -27,5 +27,6 @@ namespace WaterForAfrica
     
         public DbSet<T_LOGIN> T_LOGIN { get; set; }
         public DbSet<T_PROFILE_DETAILS> T_PROFILE_DETAILS { get; set; }
+        public DbSet<T_EVENTS> T_EVENTS { get; set; }
     }
 }

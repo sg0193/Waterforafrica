@@ -5,20 +5,61 @@
 
 @using (Html.BeginForm())
 {
-    <body>
-    <div id="body">
-        <div class="row-fluid">
-            <div class="span3">
-                <h3>Features</h3>
-            </div>
-            <div class="span5">
-                <div class="input-group well-no-bkgrnd">
-                   @Html.ActionLink("Create Event", "EventDetails");<br />
-                    @Html.ActionLink("View and Update Events", "Calendar");
 
+    <body>
+        <div id="body">
+
+            <div class="row-fluid">
+                <div class="span3">
+                    <h3>Features</h3>
+                </div>
+
+                <div class="span5">
+                    <div class="input-group well-no-bkgrnd">
+                        <div class="row-fluid">
+
+                            <div class="media">
+                                <a class="pull-left" href="EventDetails">
+                                    <img class="media-object" src="~/images/event-icon.png">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Create Event</h4>
+                                    <p>Need to create a event </p>
+                                    <p><strong><a href="EventDetails">Create Event</a></strong></p>
+                                </div>
+
+                            </div>
+                            @*@Html.ActionLink("Create Event", "EventDetails");<br />*@
+                            @*@Html.ActionLink("View and Update Events", "Calendar")*@
+
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <div class="row-fluid">
+
+                            <div class="media">
+                                <a class="pull-left" href="Calendar">
+                                    <img class="media-object" src="~/images/calendar-icon.png">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">View and Update Events</h4>
+                                    <p>Need to create or update an event or details of an event</p>
+                                    <p><strong><a href="Calendar">View and Update Events</a></strong></p>
+                                </div>
+
+                            </div>
+                            @*  @Html.ActionLink("Create Event", "EventDetails");<br />
+                        @Html.ActionLink("View and Update Events", "Calendar");*@
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>          
     </body>
 }

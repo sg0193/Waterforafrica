@@ -31,14 +31,31 @@ namespace Events.Models
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
         
-        public bool IsValid(string UserName, string Password)
+        public bool IsValid(string UserName, string Password,out string Message)
         {
-            bool isValid = true;
-            //using (EventsDbEntities eventsContext = new EventsDbEntities())
-            //{
-            //    var User = eventsContext.T_LOGIN.Select(login => login.UserName.Equals(UserName)).ToList();
+            bool isValid = false;
+            Message = string.Empty;
+            using (EventsDbEntities eventsContext = new EventsDbEntities())
+            {
+                var User = eventsContext.T_LOGIN.Where(login => login.UserName.Equals(UserName)).ToList();
+                if (User.Count == 1)
+                {
+                    if (User[0].UserName == UserName && User[0].Password == Password)
+                    {
+                        isValid = true;
+                    }
+                    else
+                    {
+                        Message = "Username and Password combination is not valid";
+
+                    }
+                }
+                else
+                {
+                    Message = "Not a valid Username";
+                }
                  
-            //}
+            }
             return isValid;
         }
     }

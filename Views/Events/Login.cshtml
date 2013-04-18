@@ -3,14 +3,34 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Events.cshtml";
 }
+<script>
+    $(document).ready(function () {
+        $('#divverification').show();
+        var failureText = $('.field-validation-error').text();
+        if (failureText != "") {
+            $('#diverror').show();
+        }
+        else {
+            $('#diverror').hide();
+        }
 
+        var successText = $('#successtext').text();
+        if (successText != "") {
+            $('#divsuccess').show();
+            $('#divverification').hide();
+        }
+        else {
+            $('#divsuccess').hide();
+        }
+    });
+</script>
 
 @using (Html.BeginForm())
 {<body>
     <div id="body">
         <div class="row-fluid">
             <div class="span4">
-                <h2>Welcome to A Rise for Water</h2>
+                <h3>Welcome to A Rise for Water</h3>
                 <p>We're Christians and we believe Jesus makes a clear call to "provide a cup of cold water" and to answer the needs of those who say "I am thirsty" (Matt 25).</p>
                 <p>
                     Our belief motivates our action. It doesn't limit our reach.
@@ -18,22 +38,25 @@ That said, it's important to note that we work with everyone, for everyone. Our 
                 </p>
             </div>
             <div class="span4 offset1">
+                <div id="diverror" style="display: none" class="alert alert-error">
+                        <h5 id="Errormsg">@Html.ValidationMessage("MessageError")</h5>
+                    </div>
                 @*<form action="../../j_spring_security_check" method="post">*@
-                    <h2>Login</h2>
+                    <h3>Login</h3>
                     <label class="control-label" for="txtUserName">UserName @Html.ValidationMessageFor(model => model.UserName)</label>
                     @Html.TextBoxFor(m => m.UserName, new { @class = "input-xlarge", placeholder = "Enter your Username", @maxlength = "60", @autocomplete = "off" })
                      <label class="control-label" for="txtPassword">Password @Html.ValidationMessageFor(model => model.Password)</label>
                     @Html.PasswordFor(m => m.Password, new { @class = "input-xlarge", placeholder = "Enter your Password", @maxlength = "60", @autocomplete = "off" })
                     <br />
-                    <button name="button" Value="Signin">Sigin</button>
+                    <button name="button" class="btn btn-primary" Value="Signin">Sigin</button>
                 @*</form>*@
             </div>
 
             <div class="span3">
-                <h2>Join</h2>
+                <h3>Join</h3>
                 <p>A Rise for Water Project is a charity dedicated to helping provide clean, safe water to those who suffer needlessly without it.You can help!</p>
                 <br />
-                <button name="button" Value="JoinUs">Join Us</button>
+                <button name="button" class="btn btn-primary" Value="JoinUs">Join Us</button>
             </div>
         </div>
 

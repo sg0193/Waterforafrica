@@ -12,21 +12,16 @@ namespace WaterForAfrica
     using System;
     using System.Collections.Generic;
     
-    public partial class T_LOGIN
+    public partial class T_EVENTS
     {
-        public T_LOGIN()
-        {
-            this.T_PROFILE_DETAILS = new HashSet<T_PROFILE_DETAILS>();
-            this.T_EVENTS = new HashSet<T_EVENTS>();
-        }
-    
+        public int EventId { get; set; }
+        public string EventDescription { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime EndDate { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
         public int LoginId { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string CreatedBy { get; set; }
-        public System.DateTime CreatedOn { get; set; }
     
-        public virtual ICollection<T_PROFILE_DETAILS> T_PROFILE_DETAILS { get; set; }
-        public virtual ICollection<T_EVENTS> T_EVENTS { get; set; }
+        public virtual T_LOGIN T_LOGIN { get; set; }
     }
 }

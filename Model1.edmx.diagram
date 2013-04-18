@@ -4,10 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="71952809dd634563ae7036d9b906c5dc" Name="Diagram1">
+      <Diagram DiagramId="71952809dd634563ae7036d9b906c5dc" Name="Diagram1" ZoomLevel="114">
         <EntityTypeShape EntityType="db8384054e5c6049a5a3c1a19c01073dabModel.T_LOGIN" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="db8384054e5c6049a5a3c1a19c01073dabModel.T_PROFILE_DETAILS" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="db8384054e5c6049a5a3c1a19c01073dabModel.FK_T_PROFILE_DETAILS_T_LOGIN" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db8384054e5c6049a5a3c1a19c01073dabModel.T_EVENTS" Width="1.5" PointX="8.66125915044046" PointY="9.7670778826657116" />
+        <AssociationConnector Association="db8384054e5c6049a5a3c1a19c01073dabModel.FK_T_EVENTS_T_LOGIN" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

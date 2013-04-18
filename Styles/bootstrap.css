@@ -2307,7 +2307,7 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url("../img/glyphicons-halflings-white.png");
+  background-image: url("../imaGES/glyphicons-halflings-blue.png")
 }
 
 .icon-glass {
@@ -3336,7 +3336,7 @@ input[type="button"].btn-block {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #006dcc;
-  *background-color: #0044cc;
+  /**background-color: #0044cc;*/
   background-repeat: repeat-x;
     background-image: linear-gradient(to bottom, #0088cc, #0044cc);
     border-left-color: #0044cc;
@@ -3345,16 +3345,16 @@ input[type="button"].btn-block {
     border-bottom-color: #002a80;
 }
 
-.btn-primary:hover,
+/*.btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active,
 .btn-primary.disabled,
 .btn-primary[disabled] {
   color: #ffffff;
-  background-color: #0044cc;
+  /*background-color: #0044cc;
   *background-color: #003bb3;
-}
+}*/
 
 .btn-primary:active,
 .btn-primary.active {

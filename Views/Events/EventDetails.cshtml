@@ -1,7 +1,13 @@
-﻿@{
+﻿@model Events.Models.EventModel 
+@{
     ViewBag.Title = "EventDetails";
     Layout = "~/Views/Shared/_Events.cshtml";
 }
+ <script>
+$(function() {
+$( ".datepicker" ).datepicker();
+});
+</script>
 <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
 @using (Html.BeginForm())
 {
@@ -13,10 +19,10 @@
                 </div>
                 <div class="span5">
                     <div class="input-group well-no-bkgrnd">
-                        <label id="lblEventDescription">Event Description</label>
-                        <input type="text" id="txtEventDescription" />
-                        <label id="lblCity">City</label>
-                        <input type="text" id="txtCity" />
+                        <label id="lblEventDescription">Event Description @Html.ValidationMessageFor(model => model.EventDescription)</label>
+                         @Html.TextBoxFor(m => m.EventDescription, new { @class = "input-xlarge", placeholder = "Enter Event Description", @maxlength = "60", @autocomplete = "off" })
+                        <label id="lblCity">City @Html.ValidationMessageFor(model => model.City)</label>
+                         @Html.TextBoxFor(m => m.City, new { @class = "input-xlarge", placeholder = "Enter Event City", @maxlength = "60", @autocomplete = "off" })
                         <label id="lblState">State</label>
                         <select name="state">
                             <option value="AL">Alabama</option>
@@ -72,8 +78,8 @@
                             <option value="WY">Wyoming</option>
                         </select>
                         <label id="Label1">From</label>
-                        <input type="text" value="02/16/12" data-date-format="mm/dd/yy" class="datepicker" /><label id="Label2">To</label>
-                        <input type="text" value="02/16/12" data-date-format="mm/dd/yy" class="datepicker" />
+                         @Html.TextBoxFor(m => m.StartDate, new { @class = "datepicker", placeholder = "Enter Start Date of the Event", @maxlength = "60", @autocomplete = "off" })<label id="Label2">To</label>
+                           @Html.TextBoxFor(m => m.EndDate, new { @class = "datepicker", placeholder = "Enter End Date of the Event", @maxlength = "60", @autocomplete = "off" })
                         <br />
                         <button id="btnSubmit" style="text-align:right">Create/Update</button>
                     </div>

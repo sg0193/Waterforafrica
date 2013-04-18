@@ -51,6 +51,7 @@
                 <div style="text-align:right">
                     @if (Request.IsAuthenticated)
                     {
+                        <i class="icon-user icon-white"></i>
                         @:Welcome <strong style="color: rgb(0, 136, 204);">@User.Identity.Name,</strong>
                         @Html.ActionLink("Logout", "Logout") 
                        }

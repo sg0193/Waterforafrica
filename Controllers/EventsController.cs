@@ -8,6 +8,7 @@ using System.Data.EntityModel;
 using System.Data.Entity;
 using System.Web.Security;
 using WaterForAfrica;
+using System.Web.Script.Serialization;
 
 namespace Events.Controllers
 {
@@ -32,23 +33,53 @@ namespace Events.Controllers
             return View();
         }
 
+        public JsonResult GetEvents()
+        {
+
+            CalendarModel model = new CalendarModel();
+            List<CalendarItem> events = model.GetEvents();
+            var opEvents = new List<MVCEvent>();
+            DateTime Started;
+            DateTime Ended;
+            var eventItems = from eventIts in events
+                             select eventIts;
+            foreach (CalendarItem eve in eventItems)
+            {
+                Started = Convert.ToDateTime(eve.Start);
+                Ended = Convert.ToDateTime(eve.End);
+                 opEvents.Add(new MVCEvent()
+                {
+                    id = eve.Id,
+                title = eve.title,
+                start = eve.Start.ToString("s"),
+                end = eve.End.ToString("s"),
+                allDay = false,
+                url=""
+
+                });
+            }
+           // CalendarItem[] eventArray = events.ToArray();
+          //  return Json(new {EventId = events[0].Id,title = events[0].title, Start = events[0].Start, End = events[0].End}, JsonRequestBehavior.AllowGet);
+            return Json(opEvents.ToArray(), JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Calendar()
         {
+           
             return View();
         }
         public ActionResult ContactUs()
         {
             return View();
         }
+
+        [Authorize]
         public ActionResult EventDetails()
         {
             return View();
 
         }
-        //public ActionResult Login()
-        //{
-        //    return View();
-        //}
+        
         public ActionResult ProfileCreate()
         {
             return View();
@@ -91,13 +122,14 @@ namespace Events.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Login(string button, LoginModel model)
         {
+            string Message = "";
             if (button == "Signin")
             {
 
                 
                 if (ModelState.IsValid)
                 {
-                    if (model.IsValid(model.UserName, model.Password))
+                    if (model.IsValid(model.UserName, model.Password, out Message ))
                     {
                         FormsAuthentication.SetAuthCookie(model.UserName, true);
                         return RedirectToAction("UserActions", "Events");
@@ -105,7 +137,7 @@ namespace Events.Controllers
 
                     else
                     {
-                        ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                        ModelState.AddModelError("MessageError", Message);
                     }
                 }
                 return View(model);
@@ -116,7 +148,6 @@ namespace Events.Controllers
             }
         }
 
-       
         [HttpPost]
         public ActionResult ProfileCreate(ProfileModel ProfileModel)
         {
@@ -137,6 +168,20 @@ namespace Events.Controllers
                 return View();
             }
                        
+        }
+
+        [HttpPost]
+        public ActionResult EventDetails(EventModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                int eventId = model.AddEvent(model.EventDescription, model.StartDate, model.EndDate, model.City, model.State, User.Identity.Name);
+                return RedirectToAction("Calendar");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
