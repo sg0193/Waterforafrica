@@ -103,7 +103,7 @@ namespace Events.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Utilities.SendEmail("shravan.guri@gmail.com", "1");
+                    Utilities.SendEmail(model.UserName, "1");
                 }
                 return View(model);
             }
