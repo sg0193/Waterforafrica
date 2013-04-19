@@ -4,11 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Data.EntityModel;
-using System.Data.Entity;
 using System.Web.Security;
 using WaterForAfrica;
-using System.Web.Script.Serialization;
+using WaterForAfrica.Filters;
 
 namespace Events.Controllers
 {
@@ -92,6 +90,27 @@ namespace Events.Controllers
         {
             return View();
         }
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [AcceptVerbs(HttpVerbs.Post)]
+        [ValidateOnlyIncomingValuesAttribute]
+        public ActionResult ForgotPassword(string button, LoginModel model)
+        {
+            if (button == "Send")
+            {
+                if (ModelState.IsValid)
+                {
+                   //Send Email
+                }
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
         public ActionResult ThankYou()
         {
             return View();
@@ -125,8 +144,6 @@ namespace Events.Controllers
             string Message = "";
             if (button == "Signin")
             {
-
-                
                 if (ModelState.IsValid)
                 {
                     if (model.IsValid(model.UserName, model.Password, out Message ))

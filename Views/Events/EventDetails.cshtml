@@ -3,9 +3,18 @@
     ViewBag.Title = "EventDetails";
     Layout = "~/Views/Shared/_Events.cshtml";
 }
+<script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    </script>
  <script>
+
 $(function() {
-$( ".datepicker" ).datepicker();
+    $("#datetimepicker").datetimepicker({
+        language: 'pt-BR'
+    });
 });
 </script>
 <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
@@ -77,9 +86,15 @@ $( ".datepicker" ).datepicker();
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>
-                        <label id="Label1">From</label>
-                         @Html.TextBoxFor(m => m.StartDate, new { @class = "datepicker", placeholder = "Enter Start Date of the Event", @maxlength = "60", @autocomplete = "off" })<label id="Label2">To</label>
-                           @Html.TextBoxFor(m => m.EndDate, new { @class = "datepicker", placeholder = "Enter End Date of the Event", @maxlength = "60", @autocomplete = "off" })
+                        <label id="Label1">From @Html.ValidationMessageFor(model => model.StartDate)</label>
+                        <div id="datetimepicker" class="input-append date">
+                         @Html.TextBoxFor(m => m.StartDate, new { @class = "datepicker", placeholder = "Enter Start Date of the Event", @maxlength = "60", @autocomplete = "off" })
+                        <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+                            </div><label id="Label2">To @Html.ValidationMessageFor(model => model.EndDate)</label>
+                           @Html.TextBoxFor(m => m.EndDate, new { @class = "datetimepicker", placeholder = "Enter End Date of the Event", @maxlength = "60", @autocomplete = "off" })
                         <br />
                         <button id="btnSubmit" style="text-align:right">Create/Update</button>
                     </div>

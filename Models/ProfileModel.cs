@@ -4,13 +4,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-using FluentValidation.Mvc;
+using FluentValidation.Attributes;
+using WaterForAfrica.Validator;
 using WaterForAfrica;
 
 namespace Events.Models
 {
-     //[Validator(typeof(RegisterValidator))]
+     [Validator(typeof(ProfileModelValidator))]
     public class ProfileModel
     {
 

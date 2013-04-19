@@ -13,10 +13,13 @@ namespace WaterForAfrica.Validator
         {
             RuleFor(x => x.UserName)
                 .NotEmpty()
-                .WithMessage("UserName cannot be empty");
+                .WithMessage("cannot be empty");
             RuleFor(x => x.Password)
                 .NotEmpty()
-                .WithMessage("Password cannot be empty");
+                .WithMessage("cannot be empty");
+            RuleFor(x => x.UserName)
+               .EmailAddress()
+               .WithMessage("should be a valid Email address");
         }
     }
 }

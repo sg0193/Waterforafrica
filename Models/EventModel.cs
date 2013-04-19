@@ -5,9 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WaterForAfrica;
+using FluentValidation.Attributes;
+using WaterForAfrica.Validator;
 
 namespace Events.Models
 {
+    [Validator(typeof(EventModelValidator))]
     public class EventModel 
     {
         [Display(Name = "Start Date")]

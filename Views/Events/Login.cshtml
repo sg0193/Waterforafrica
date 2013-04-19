@@ -49,6 +49,7 @@ That said, it's important to note that we work with everyone, for everyone. Our 
                     @Html.PasswordFor(m => m.Password, new { @class = "input-xlarge", placeholder = "Enter your Password", @maxlength = "60", @autocomplete = "off" })
                     <br />
                     <button name="button" class="btn btn-primary" Value="Signin">Sigin</button>
+                @Html.ActionLink("Forgot Password?", "ForgotPassword")
                 @*</form>*@
             </div>
 

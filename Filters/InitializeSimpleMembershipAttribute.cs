@@ -3,6 +3,8 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 using WebMatrix.WebData;
 using WaterForAfrica.Models;
 
@@ -45,6 +47,22 @@ namespace WaterForAfrica.Filters
                     throw new InvalidOperationException("The ASP.NET Simple Membership database could not be initialized. For more information, please see http://go.microsoft.com/fwlink/?LinkId=256588", ex);
                 }
             }
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class ValidateOnlyIncomingValuesAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            var modelState = filterContext.Controller.ViewData.ModelState;
+            var valueProvider = filterContext.Controller.ValueProvider;
+
+            var keysWithNoIncomingValue = modelState.Keys.Where(x => !valueProvider.ContainsPrefix(x));
+            foreach (var key in keysWithNoIncomingValue)
+                modelState[key].Errors.Clear();
         }
     }
 }

@@ -215,7 +215,9 @@
     <Compile Include="T_PROFILE_DETAILS.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Validator\EventModelValidator.cs" />
     <Compile Include="Validator\LoginModelValidator.cs" />
+    <Compile Include="Validator\ProfileModelValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -432,6 +434,7 @@
     <Content Include="Views\Shared\_Events.cshtml" />
     <Content Include="Views\Events\Logout.cshtml" />
     <Content Include="Views\Events\UserActions.cshtml" />
+    <Content Include="Views\Events\ForgotPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
