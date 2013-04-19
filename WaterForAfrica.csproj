@@ -326,6 +326,7 @@
     <Content Include="Images\calendar-icon.png" />
     <Content Include="Images\event-icon.png" />
     <Content Include="Images\glyphicons-halflings-blue.png" />
+    <Content Include="Images\Logo.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
