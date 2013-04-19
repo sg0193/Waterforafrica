@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using WaterForAfrica;
 using WaterForAfrica.Filters;
+using WaterForAfrica.Utilities;
 
 namespace Events.Controllers
 {
@@ -102,7 +103,7 @@ namespace Events.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                   //Send Email
+                    Utilities.SendEmail("shravan.guri@gmail.com", "1");
                 }
                 return View(model);
             }

@@ -13,7 +13,9 @@
 
 $(function() {
     $("#datetimepicker").datetimepicker({
-        language: 'pt-BR'
+        format: 'dd/MM/yyyy hh:mm:ss',
+        pick12HourFormat: true,   // enables the 12-hour format time picker
+    pickSeconds: false      
     });
 });
 </script>
@@ -96,7 +98,7 @@ $(function() {
                             </div><label id="Label2">To @Html.ValidationMessageFor(model => model.EndDate)</label>
                            @Html.TextBoxFor(m => m.EndDate, new { @class = "datetimepicker", placeholder = "Enter End Date of the Event", @maxlength = "60", @autocomplete = "off" })
                         <br />
-                        <button id="btnSubmit" style="text-align:right">Create/Update</button>
+                        <button id="btnSubmit" class="gbqfb" style="text-align:right">Create/Update</button>
                     </div>
                 </div>
             </div>
