@@ -13,8 +13,6 @@ namespace Events.Models
      [Validator(typeof(ProfileModelValidator))]
     public class ProfileModel
     {
-
-
         [AllowHtml]
         public string UserName { get; set; }
         [AllowHtml]
