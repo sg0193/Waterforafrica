@@ -17,7 +17,7 @@
     <link href="@Url.Content("~/Styles/bootstrap.css")" rel="stylesheet">
     <link href="@Url.Content("~/Styles/style_public.css")" rel="stylesheet">
     <link href="@Url.Content("~/Styles/StyleSheet1.css")" rel="stylesheet">
-     <link href="@Url.Content("~/Content/site.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/site.css")" rel="stylesheet">
     <link href="@Url.Content("~/Styles/bootstrap-responsive.css")" rel="stylesheet">
     <link href="@Url.Content("~/Styles/fullcalendar.css")" rel="stylesheet"/>
 
@@ -36,12 +36,12 @@
 
             $('[rel=popover]').popover({
                 html: true,
-                title:   '@Html.ActionLink("Edit Profile","EditProfile")',
-                content: '@Html.ActionLink("User Actions","UserActions")'
+                title: '@Html.ActionLink("Edit Profile", "EditProfile")',
+                content: '@Html.ActionLink("User Actions", "UserActions")'
             });
 
         });
-</script>
+    </script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
@@ -62,7 +62,7 @@
                     <h1 class="muted">
                         <img src="@Url.Content("~/Images/Logo.png")" />A Rise For Water</h1>
                 </div>
-                <div style="text-align:right">
+                <div style="text-align: right">
                     @if (Request.IsAuthenticated)
                     {
                         <i class="icon-user icon-white"></i>
@@ -73,13 +73,13 @@
                               @Html.ActionLink("User Actions","UserActions")
                         </div>*@
                         @Html.ActionLink("Logout", "Logout") 
-                       }
+                    }
 
 
                     else
                     {
                         @Html.ActionLink("Login/Register", "Login") 
-                      }
+                    }
                 </div>
 
             </div>
@@ -100,12 +100,22 @@
                 </div>
             </div>
             <!-- /.navbar -->
-       
-                 @RenderBody()
+
+            @RenderBody()
 
             <hr>
             <div class="footer">
-                <p style="text-align: right">&copy; A Rise For Water 2013</p>
+                <div class="row-fluid">
+                    <div class="span4">
+                        @*<ul id="footer-social">*@
+                        <a href="https://twitter.com/waterforafrica" id="btnTwitter"><img src="@Url.Content("~/Images/twitter-icon.gif")" /></a>
+                         <a href="https://www.facebook.com/purer.waterforafrica" id="btnFacebook"><img src="@Url.Content("~/Images/facebook-icon.gif")" /></a>
+                        <a href="http://www.youtube.com/watch?v=2PtrmJV5HY0" id="btnYoutube"> <img src="@Url.Content("~/Images/youtube-icon.gif")"/></a>
+                    </div>
+                    <div class="span8">
+                        <p style="text-align: right">&copy; A Rise For Water 2013</p>
+                    </div>
+                </div>
             </div>
 
         </div>

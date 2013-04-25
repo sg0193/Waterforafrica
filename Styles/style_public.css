@@ -4,7 +4,22 @@
     margin-bottom: 20px;
     border: 1px solid #50aadb;
 }
-
+.twitter-icon,
+.facebook-icon,
+.youtube-icon,
+.rss-icon {
+  width: 24px;
+  height: 24px;
+}
+.twitter-icon {
+  background-position: 0 0;
+}
+.facebook-icon {
+  background-position: -26px 0;
+}
+.youtube-icon {
+  background-position: -53px 0;
+}
 .input-group h3 {
     font-size: 20px;
     margin-bottom: 0;
