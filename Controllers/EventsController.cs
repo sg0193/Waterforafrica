@@ -95,6 +95,19 @@ namespace Events.Controllers
         {
             return View();
         }
+        [Authorize]
+        public ActionResult EditProfile()
+        {
+            ProfileModel model = new ProfileModel();
+            model = model.GetProfile(User.Identity.Name);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditProfile(ProfileModel model)
+        {
+            model.UpdateProfile(model);
+            return RedirectToAction("Logout");
+        }
         [AcceptVerbs(HttpVerbs.Post)]
         [ValidateOnlyIncomingValuesAttribute]
         public ActionResult ForgotPassword(string button, LoginModel model)

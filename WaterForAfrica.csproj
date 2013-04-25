@@ -443,6 +443,7 @@
     <Content Include="Views\Events\UserActions.cshtml" />
     <Content Include="Views\Events\ForgotPassword.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\Events\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

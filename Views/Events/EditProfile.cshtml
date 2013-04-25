@@ -1,0 +1,42 @@
+﻿@model Events.Models.ProfileModel
+
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_Events.cshtml";
+}
+
+@using (Html.BeginForm())
+{<body>
+    <div id="body">
+        <div class="row">
+            <div class="span3">
+                <h3>Edit Profile</h3>
+            </div>
+            <div class="span5">
+                <br />
+                <div class="input-group well-no-bkgrnd">
+                    <h3>Login Information</h3>
+                    <br />
+                   <label class="control-label" for="txtUserName">UserName @Html.ValidationMessageFor(model => model.UserName)</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "input-xlarge", placeholder = "Enter your Username", @maxlength = "60", @autocomplete = "off", @readonly="readonly" })
+                    <a href="javascript:void(0);" id="searchingUserName" rel="popover" data-content="“Your username is required to be a unique id with Allscripts. Please enter a unique id you will remember in the future. This can be a common username you use or your e-mail address”"
+                        data-original-title="What is a username?"><i class="icon-info-sign"></i></a>
+                     <label class="control-label" for="txtPassword">Password @Html.ValidationMessageFor(model => model.Password)</label>
+                    @Html.PasswordFor(m => m.Password, new { @class = "input-xlarge",placeholder = "Enter your Password", @maxlength = "60", @autocomplete = "off" })
+                      <label class="control-label" for="txtCnfrmPassword">Confirm Password @Html.ValidationMessageFor(model => model.cnfmPassword)</label>
+                    @Html.PasswordFor(m => m.cnfmPassword, new { @class = "input-xlarge",placeholder = "Confirm your Password", @maxlength = "60", @autocomplete = "off", })
+                    <h3>Profile Information</h3>
+                    <br />
+                    <label class="control-label" for="txtFirstName">FirstName @Html.ValidationMessageFor(model => model.FirstName)</label>
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "input-xlarge", placeholder = "Enter your First Name", @maxlength = "60", @autocomplete = "off" })
+                    <label class="control-label" for="txtLastName">LastName @Html.ValidationMessageFor(model => model.LastName)</label>
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "input-xlarge", placeholder = "Enter your Last Name", @maxlength = "60", @autocomplete = "off" })
+                    <br />
+                    <button id="btnCreateProfile" class="gbqfb" style="">Update Profile</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </body>
+}

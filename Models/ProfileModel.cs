@@ -56,5 +56,40 @@ namespace Events.Models
              }
              return regStatus;
          }
+
+         public ProfileModel GetProfile(string userName)
+         {
+             ProfileModel model = new ProfileModel();
+             if (!String.IsNullOrWhiteSpace(userName))
+             {
+                 using (EventsDbEntities eventsContext = new EventsDbEntities())
+                 {
+                     T_LOGIN loginDetails = eventsContext.T_LOGIN.FirstOrDefault(login => login.UserName == userName);
+                     T_PROFILE_DETAILS profileDetails = eventsContext.T_PROFILE_DETAILS.FirstOrDefault(profile => profile.LoginId == loginDetails.LoginId);
+                     model.FirstName = profileDetails.FirstName;
+                     model.LastName = profileDetails.LastName;
+                     model.Password = loginDetails.Password;
+                     model.cnfmPassword = loginDetails.Password;
+                     model.UserName = userName;
+
+                 }
+             }
+          return model;   
+         }
+
+         public void UpdateProfile(ProfileModel model)
+         {
+             using (EventsDbEntities eventsContext = new EventsDbEntities())
+             {
+                 T_LOGIN loginDetails = eventsContext.T_LOGIN.FirstOrDefault(login => login.UserName == model.UserName);
+                 T_PROFILE_DETAILS profileDetails = eventsContext.T_PROFILE_DETAILS.FirstOrDefault(profile => profile.LoginId == loginDetails.LoginId);
+                 profileDetails.FirstName = model.FirstName;
+                 profileDetails.LastName = model.LastName;
+                 loginDetails.Password = model.Password;
+                 eventsContext.SaveChanges();
+
+             }
+ 
+         }
     }
 }

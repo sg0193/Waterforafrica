@@ -28,7 +28,20 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/fullcalendar.min.js")"></script>
 
+    <script>
+        $(function () {
+            //var img = '<img src="https://si0.twimg.com/a/1339639284/images/three_circles/twitter-bird-white-on-blue.png" />';
 
+            //$("#blob").popover({ title: 'Look!  A bird image!', content: img });
+
+            $('[rel=popover]').popover({
+                html: true,
+                title:   '@Html.ActionLink("Edit Profile","EditProfile")',
+                content: '@Html.ActionLink("User Actions","UserActions")'
+            });
+
+        });
+</script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
@@ -53,7 +66,12 @@
                     @if (Request.IsAuthenticated)
                     {
                         <i class="icon-user icon-white"></i>
-                        @:Welcome <strong style="color: rgb(0, 136, 204);">@User.Identity.Name,</strong>
+                        @:Welcome 
+                        <a href="#" id="example1" rel="popover" data-placement="bottom"><strong style="color: rgb(0, 136, 204);">@User.Identity.Name,</strong></a>@*
+                        <div class="popover_content_wrapper">
+                            @Html.ActionLink("Edit Profile","EditProfile")
+                              @Html.ActionLink("User Actions","UserActions")
+                        </div>*@
                         @Html.ActionLink("Logout", "Logout") 
                        }
 
