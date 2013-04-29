@@ -14,9 +14,9 @@
         var y = date.getFullYear();
         $('#calendar').fullCalendar({
             events:'@Url.Action( "GetEvents","Events")'
-        });
+        }, 'refetchEvents');
        
-
+        
     });
 
 </script>
