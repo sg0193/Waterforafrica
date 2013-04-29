@@ -1,8 +1,10 @@
-﻿@model Events.Models.EventModel 
+﻿@model Events.Models.EventModel
 @{
-    ViewBag.Title = "EventDetails";
+    ViewBag.Title = "UpdateEvents";
     Layout = "~/Views/Shared/_Events.cshtml";
 }
+
+
 <script type="text/javascript"
      src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
     </script>
@@ -26,7 +28,7 @@ $(function() {
     <div id="body">
         <div class="row-fluid">
                 <div class="span3">
-                    <h3>Event Details</h3>
+                    <h3>Update Event Details</h3>
                 </div>
                 <div class="span5">
                     <div class="input-group well-no-bkgrnd">
@@ -98,7 +100,7 @@ $(function() {
                             </div><label id="Label2">To @Html.ValidationMessageFor(model => model.EndDate)</label>
                            @Html.TextBoxFor(m => m.EndDate, new { @class = "datetimepicker", placeholder = "Enter End Date of the Event", @maxlength = "60", @autocomplete = "off" })
                         <br />
-                        <button id="btnSubmit" class="gbqfb" style="text-align:right">Create</button>
+                        <button id="btnSubmit" class="gbqfb" style="text-align:right">Update</button>
                     </div>
                 </div>
             </div>

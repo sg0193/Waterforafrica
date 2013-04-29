@@ -52,6 +52,22 @@ namespace Events.Models
             }
             return eventId;
         }
+        public EventModel GetEventItem(int eventId)
+        {
+            EventModel model = new EventModel();
+            using (EventsDbEntities eventsContext = new EventsDbEntities())
+            {
+                var eve = eventsContext.T_EVENTS.FirstOrDefault(ent => ent.EventId == eventId);
 
+                //calItem.LoginId = eve.LoginId;
+               // model.e = eve.EventId;
+                model.StartDate = eve.StartDate;
+                model.EndDate = eve.EndDate;
+                model.EventDescription = eve.EventDescription;
+                model.State = eve.State;
+                model.City = eve.City;
+            }
+            return model;
+        }
     }
 }

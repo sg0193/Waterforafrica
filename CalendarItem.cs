@@ -11,7 +11,9 @@ namespace WaterForAfrica
         public string title {get;set;}
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
-        //public int LoginId { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        
     }
 
 

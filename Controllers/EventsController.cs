@@ -46,15 +46,20 @@ namespace Events.Controllers
             {
                 Started = Convert.ToDateTime(eve.Start);
                 Ended = Convert.ToDateTime(eve.End);
+                string urlstr ="";
+                if (Request.IsAuthenticated)
+                {
+                    urlstr = "UpdateEvents?eventId=" + eve.Id;
+                }
+
                  opEvents.Add(new MVCEvent()
                 {
-                    id = eve.Id,
+                id = eve.Id,
                 title = eve.title,
                 start = eve.Start.ToString("s"),
                 end = eve.End.ToString("s"),
                 allDay = false,
-                url=""
-
+                url= urlstr
                 });
             }
            // CalendarItem[] eventArray = events.ToArray();
@@ -76,6 +81,15 @@ namespace Events.Controllers
         public ActionResult EventDetails()
         {
             return View();
+
+        }
+
+        [Authorize]
+        public ActionResult UpdateEvents(int eventId)
+        {
+            EventModel model = new EventModel();
+            model = model.GetEventItem(eventId);
+            return View(model);
 
         }
         
