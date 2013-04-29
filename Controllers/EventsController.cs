@@ -92,6 +92,13 @@ namespace Events.Controllers
             return View(model);
 
         }
+
+        [HttpPost]
+        public ActionResult UpdateEvents(EventModel model)
+        {
+           model.UpdateEvents(model);
+            return RedirectToAction("Calendar");
+        }
         
         public ActionResult ProfileCreate()
         {

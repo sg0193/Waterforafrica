@@ -33,6 +33,8 @@ namespace Events.Models
         [AllowHtml]
         public string EventDescription { get; set; }
 
+        public int EventId { get; set; }
+
         public int AddEvent(string EventDescription, DateTime StartDate, DateTime EndDate,string City, string State, string UserName)
         {
             int  eventId = 0;
@@ -66,8 +68,24 @@ namespace Events.Models
                 model.EventDescription = eve.EventDescription;
                 model.State = eve.State;
                 model.City = eve.City;
+                model.EventId = eventId;
             }
             return model;
+        }
+
+        public void UpdateEvents(EventModel model)
+        {
+            using (EventsDbEntities eventsContext = new EventsDbEntities())
+            {
+                T_EVENTS eve = eventsContext.T_EVENTS.FirstOrDefault(e => e.EventId == model.EventId);
+                eve.StartDate = model.StartDate;
+                eve.EndDate = model.EndDate;
+                eve.City = model.City;
+                eve.State = model.State;
+                eve.EventDescription = model.EventDescription;
+
+                eventsContext.SaveChanges();
+            }
         }
     }
 }
