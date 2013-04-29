@@ -13,10 +13,12 @@
         var m = date.getMonth();
         var y = date.getFullYear();
         $('#calendar').fullCalendar({
-            events:'@Url.Action( "GetEvents","Events")'
-        }, 'refetchEvents');
-       
-        
+            events: '@Url.Action( "GetEvents","Events")',
+            loading: function (bool) {
+                if (bool) $('#loading').show();
+                else $('#loading').hide();
+            }
+        });
     });
 
 </script>
@@ -24,6 +26,7 @@
 @using (Html.BeginForm())
 {
     <body>
+        <img id ="loading" style="display:none" src='@Url.Content("~/images/loading.gif")' alt="Searching" />
     <div id="body">
         <div id="calendar"></div>
         </div>

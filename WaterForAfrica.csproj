@@ -328,6 +328,7 @@
     <Content Include="Images\event-icon.png" />
     <Content Include="Images\facebook-icon.gif" />
     <Content Include="Images\glyphicons-halflings-blue.png" />
+    <Content Include="Images\loading.gif" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\twitter-icon.gif" />
     <Content Include="Images\youtube-icon.gif" />
