@@ -137,7 +137,7 @@ namespace Events.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Utilities.SendEmail(model.UserName, "1");
+                    Utilities.SendEmail(model.UserName, "ForgotPassword");
                 }
                 return View(model);
             }

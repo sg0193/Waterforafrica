@@ -17,12 +17,21 @@ namespace WaterForAfrica.Utilities
             mailMsg.From = new MailAddress("nethra275@live.com");
 
             // Subject and Body
-            mailMsg.Subject = "test";
-            mailMsg.Body = "body";
+           
                                
             SmtpServer.UseDefaultCredentials = false;
             SmtpServer.Credentials = new System.Net.NetworkCredential("nethra275@live.com", "Shravann22");
             SmtpServer.EnableSsl = true;
+
+            switch (emailType)
+            {
+                case "ForgotPassword":
+                     mailMsg.Subject = "Your Password for A Rise For Water";
+                     mailMsg.Body = "body";
+                    break;
+                default:
+                    break;
+            }
             
             try
             {

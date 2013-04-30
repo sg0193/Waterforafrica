@@ -17,7 +17,7 @@ namespace WaterForAfrica
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
+                name: "Home",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Events", action = "Home", id = UrlParameter.Optional }
             );
