@@ -58,5 +58,26 @@ namespace Events.Models
             }
             return isValid;
         }
+
+        public string GetPassword(string userName,out string message)
+        {
+            message = "";
+            string Password = "";
+            using (EventsDbEntities eventsContext = new EventsDbEntities())
+            {
+                try
+                {
+                    Password = eventsContext.T_LOGIN.Where(l => l.UserName == userName).FirstOrDefault().Password;
+                }
+                catch (Exception)
+                {
+
+                    message = "User doesnt exist";
+                }
+                
+            }
+            return Password;
+
+        }
     }
 }

@@ -137,7 +137,16 @@ namespace Events.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Utilities.SendEmail(model.UserName, "ForgotPassword");
+                    string message = "";
+                    Utilities.SendEmail(model.UserName, "ForgotPassword",out message);
+                    if (!(message == ""))
+                    {
+                        ViewBag.Success = "Check Your Email for Password";
+                    }
+                    else
+                    {
+                        ViewBag.Success = message;
+                    }
                 }
                 return View(model);
             }

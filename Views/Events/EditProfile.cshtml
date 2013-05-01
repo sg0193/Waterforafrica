@@ -19,7 +19,7 @@
                     <br />
                    <label class="control-label" for="txtUserName">UserName @Html.ValidationMessageFor(model => model.UserName)</label>
                     @Html.TextBoxFor(m => m.UserName, new { @class = "input-xlarge", placeholder = "Enter your Username", @maxlength = "60", @autocomplete = "off", @readonly="readonly" })
-                    <a href="javascript:void(0);" id="searchingUserName" rel="popover" data-content="“Your username is required to be a unique id with Allscripts. Please enter a unique id you will remember in the future. This can be a common username you use or your e-mail address”"
+                    <a href="javascript:void(0);" id="searchingUserName" data-content="“Your username is required to be a unique id with Allscripts. Please enter a unique id you will remember in the future. This can be a common username you use or your e-mail address”"
                         data-original-title="What is a username?"><i class="icon-info-sign"></i></a>
                      <label class="control-label" for="txtPassword">Password @Html.ValidationMessageFor(model => model.Password)</label>
                     @Html.PasswordFor(m => m.Password, new { @class = "input-xlarge",placeholder = "Enter your Password", @maxlength = "60", @autocomplete = "off" })

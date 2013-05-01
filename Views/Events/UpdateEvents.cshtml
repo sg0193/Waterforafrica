@@ -1,27 +1,9 @@
-﻿@model Events.Models.EventModel
+﻿@model Events.Models.EventModel 
 @{
-    ViewBag.Title = "UpdateEvents";
+    ViewBag.Title = "EventDetails";
     Layout = "~/Views/Shared/_Events.cshtml";
 }
 
-
-<script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-    </script>
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
-    </script>
- <script>
-
-$(function() {
-    $("#datetimepicker").datetimepicker({
-        format: 'dd/MM/yyyy hh:mm:ss',
-        pick12HourFormat: true,   // enables the 12-hour format time picker
-    pickSeconds: false      
-    });
-});
-</script>
-<script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
 @using (Html.BeginForm())
 {
     <body>
@@ -31,6 +13,7 @@ $(function() {
                     <h3>Update Event Details</h3>
                 </div>
                 <div class="span5">
+                    <br />
                     <div class="input-group well-no-bkgrnd">
                         <label id="lblEventDescription">Event Description @Html.ValidationMessageFor(model => model.EventDescription)</label>
                          @Html.TextBoxFor(m => m.EventDescription, new { @class = "input-xlarge", placeholder = "Enter Event Description", @maxlength = "60", @autocomplete = "off" })
@@ -91,19 +74,43 @@ $(function() {
                             <option value="WY">Wyoming</option>
                         </select>
                         <label id="Label1">From @Html.ValidationMessageFor(model => model.StartDate)</label>
-                        <div id="datetimepicker" class="input-append date">
+                        <div id="datetimepicker1" class="datetimepicker input-append date">
                          @Html.TextBoxFor(m => m.StartDate, new { @class = "datepicker", placeholder = "Enter Start Date of the Event", @maxlength = "60", @autocomplete = "off" })
                         <span class="add-on">
       <i data-time-icon="icon-time" data-date-icon="icon-calendar">
       </i>
     </span>
                             </div><label id="Label2">To @Html.ValidationMessageFor(model => model.EndDate)</label>
-                           @Html.TextBoxFor(m => m.EndDate, new { @class = "datetimepicker", placeholder = "Enter End Date of the Event", @maxlength = "60", @autocomplete = "off" })
+                           <div id="datetimepicker" class="datetimepicker input-append date">
+                         @Html.TextBoxFor(m => m.EndDate, new { @class = "datepicker", placeholder = "Enter End Date of the Event", @maxlength = "60", @autocomplete = "off" })
+                        <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+                            </div>
                         <br />
                         <button id="btnSubmit" class="gbqfb" style="text-align:right">Update</button>
                     </div>
                 </div>
             </div>
         </div>
+       @* <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    </script>*@
+        <script src="@Url.Content("~/Scripts/JQueryDatetimepicker.js")"></script>
+ <script>
+
+     $(function () {
+         $(".datetimepicker").datetimepicker({
+             format: 'yyyy-MM-dd hh:mm:ss',
+             pick12HourFormat: true,   // enables the 12-hour format time picker
+             pickSeconds: false
+         });
+     });
+</script>
+<script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
     </body>
 }

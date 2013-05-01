@@ -27,7 +27,18 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/fullcalendar.min.js")"></script>
-
+    <script>
+        $(document).ready(function () {
+            var successText = $('#successtext').text();
+            if (successText != "") {
+                $('#divsuccess').show();
+                $('#divverification').hide();
+            }
+            else {
+                $('#divsuccess').hide();
+            }
+        });
+    </script>
     <script>
         $(function () {
             //var img = '<img src="https://si0.twimg.com/a/1339639284/images/three_circles/twitter-bird-white-on-blue.png" />';
